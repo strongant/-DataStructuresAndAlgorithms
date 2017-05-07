@@ -35,6 +35,30 @@ int* ReverseArrayByWhile(int *array,int size){
 	}
 	return array;
 }
+
+void ReverseArrayByWhileNoReturn(int array[],int size){
+	int swap,left=0,right=size - 1;
+	while(left < right){
+		swap = array[left];
+		array[left] = array[right];
+		array[right] = swap;
+		left++;
+		right--;
+	}
+}
+//不需要返回数组的方法
+void outputReverseByWhileNoReturn(){
+	int array[] = {1,2,3,4,5,6,7};
+	int SIZE = (sizeof(array)/sizeof(*array));
+	ReverseArrayByWhileNoReturn(array,SIZE);
+	std::cout<<std::endl;
+	for (int i = 0; i < SIZE; ++i)
+	{
+		std::cout<<array[i]<<' ';
+	}
+	std::cout<<std::endl;
+}
+
 //使用while循环的方式完成反转数组元素
 void outputReverseByWhile(){
 	int array[] = {1,2,3,4,5,6,7};
@@ -72,5 +96,6 @@ int main(int argc, char const *argv[])
 {
 	outputReverseByWhile();
 	outputReverseByFor();
+	outputReverseByWhileNoReturn();
 	return 0;
 }
